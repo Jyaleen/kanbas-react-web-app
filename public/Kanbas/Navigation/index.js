@@ -1,39 +1,39 @@
 const links = [
     {
         name: "Account",
-        url: "/Kanbas/Account/Profile/screen.html",
+        url: "#",
     },
     {
         name: "Dashboard",
-        url: "/Kanbas/Dashboard/screen.html",
+        url: "#",
     },
     {
         name: "Courses",
-        url: "/Kanbas/Courses/Home/screen.html",
+        url: "#",
     },
     {
         name: "Calendar",
-        url: "/Kanbas/Calendar/index.html",
+        url: "#",
     },
     {
         name: "Inbox",
-        url: "/Kanbas/Inbox/index.html",
+        url: "#",
     },
     {
         name: "History",
-        url: "/Kanbas/History/index.html",
+        url: "#",
     },
     {
         name: "Studio",
-        url: "/Kanbas/Studio/index.html",
+        url: "#",
     },
     {
         name: "Commons",
-        url: "/Kanbas/Commons/index.html",
+        url: "#",
     },
     {
         name: "Help",
-        url: "/Kanbas/Help/index.html",
+        url: "#",
     },
 ];
 document.write(`
