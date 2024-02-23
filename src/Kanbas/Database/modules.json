@@ -81,7 +81,27 @@
         "_id": "M201",
         "name": "Fundamentals of Aerodynamics",
         "description": "Basic aerodynamic concepts and fluid dynamics principles.",
-        "course": "PHIL101"
+        "course": "PHIL101",
+        "lessons": [
+            {
+                "_id": "L101",
+                "name": "History of American Animation",
+                "description": "A brief history of American animation.",
+                "module": "M101"
+            },
+            {
+                "_id": "L102",
+                "name": "American Animation Fundamentals of the 1960s",
+                "description": "Basic principles of American animation in the 1960s.",
+                "module": "M101"
+            },
+            {
+                "_id": "L103",
+                "name": "Animation Types",
+                "description": "Overview of different types of animation.",
+                "module": "M101"
+            }
+        ]
     },
     {
         "_id": "M202",
@@ -93,7 +113,27 @@
         "_id": "M203",
         "name": "Aerodynamic Heating",
         "description": "Study of aerodynamic heating and thermal protection systems.",
-        "course": "PHIL101"
+        "course": "PHIL101",
+        "lessons": [
+            {
+                "_id": "L101",
+                "name": "History of American Animation",
+                "description": "A brief history of American animation.",
+                "module": "M101"
+            },
+            {
+                "_id": "L102",
+                "name": "American Animation Fundamentals of the 1960s",
+                "description": "Basic principles of American animation in the 1960s.",
+                "module": "M101"
+            },
+            {
+                "_id": "L103",
+                "name": "Animation Types",
+                "description": "Overview of different types of animation.",
+                "module": "M101"
+            }
+        ]
     },
     {
         "_id": "M301",
@@ -105,12 +145,52 @@
         "_id": "M302",
         "name": "Orbital Mechanics",
         "description": "Understanding orbital dynamics and mission planning.",
-        "course": "RS103"
+        "course": "RS103",
+        "lessons": [
+            {
+                "_id": "L101",
+                "name": "History of American Animation",
+                "description": "A brief history of American animation.",
+                "module": "M101"
+            },
+            {
+                "_id": "L102",
+                "name": "American Animation Fundamentals of the 1960s",
+                "description": "Basic principles of American animation in the 1960s.",
+                "module": "M101"
+            },
+            {
+                "_id": "L103",
+                "name": "Animation Types",
+                "description": "Overview of different types of animation.",
+                "module": "M101"
+            }
+        ]
     },
     {
         "_id": "M303",
         "name": "Spacecraft Systems Engineering",
         "description": "Overview of spacecraft systems and subsystems engineering.",
-        "course": "RS103"
+        "course": "RS103",
+        "lessons": [
+            {
+                "_id": "L101",
+                "name": "History of Spacecraft Systems",
+                "description": "A brief history of spacecraft systems.",
+                "module": "M101"
+            },
+            {
+                "_id": "L102",
+                "name": "Spacecraft Systems Engineering Fundamentals",
+                "description": "Basic principles of spacecraft engineering.",
+                "module": "M101"
+            },
+            {
+                "_id": "L103",
+                "name": "Engineering Types",
+                "description": "Overview of different types of engineering.",
+                "module": "M101"
+            }
+        ]
     }
 ]
