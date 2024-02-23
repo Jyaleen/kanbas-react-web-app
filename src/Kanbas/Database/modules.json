@@ -79,19 +79,19 @@
     },
     {
         "_id": "M201",
-        "name": "Fundamentals of Aerodynamics",
+        "name": "Fundamentals of Crayon Shin-Chan",
         "description": "Basic aerodynamic concepts and fluid dynamics principles.",
         "course": "PHIL101",
         "lessons": [
             {
                 "_id": "L101",
-                "name": "History of American Animation",
+                "name": "History of Japanese Animation",
                 "description": "A brief history of American animation.",
                 "module": "M101"
             },
             {
                 "_id": "L102",
-                "name": "American Animation Fundamentals of the 1960s",
+                "name": "Japanese Animation Fundamentals",
                 "description": "Basic principles of American animation in the 1960s.",
                 "module": "M101"
             },
@@ -105,31 +105,39 @@
     },
     {
         "_id": "M202",
-        "name": "Subsonic and Supersonic Flow",
+        "name": "How Does Shin-Chan Get to School?",
         "description": "Understanding subsonic and supersonic aerodynamic behaviors.",
-        "course": "PHIL101"
-    },
-    {
-        "_id": "M203",
-        "name": "Aerodynamic Heating",
-        "description": "Study of aerodynamic heating and thermal protection systems.",
         "course": "PHIL101",
         "lessons": [
             {
                 "_id": "L101",
-                "name": "History of American Animation",
+                "name": "A day in the life",
+                "description": "A brief history of American animation.",
+                "module": "M101"
+            }
+        ]
+    },
+    {
+        "_id": "M203",
+        "name": "Making Shin-Chan's Favorite Food",
+        "description": "Making Chocobi.",
+        "course": "PHIL101",
+        "lessons": [
+            {
+                "_id": "L101",
+                "name": "Making chocobi",
                 "description": "A brief history of American animation.",
                 "module": "M101"
             },
             {
                 "_id": "L102",
-                "name": "American Animation Fundamentals of the 1960s",
+                "name": "Making ramen",
                 "description": "Basic principles of American animation in the 1960s.",
                 "module": "M101"
             },
             {
                 "_id": "L103",
-                "name": "Animation Types",
+                "name": "Making pudding",
                 "description": "Overview of different types of animation.",
                 "module": "M101"
             }
