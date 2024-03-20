@@ -1,8 +1,8 @@
 import { useParams, useLocation } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
-import { courses } from "../../Database";
+import db from "../../Database";
 
-function Breadcrumbs() {
+function Breadcrumbs({ courses }: { courses: any[]; }) {
     const links = ["Home", "Modules", "Assignments", "Grades"];
     const { courseId } = useParams();
     const { pathname } = useLocation();
