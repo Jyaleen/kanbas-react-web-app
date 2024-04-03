@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 function WorkingWithArrays() {
     const API = "http://localhost:4000/a5/todos";
     const [todo, setTodo] = useState({
@@ -7,9 +8,98 @@ function WorkingWithArrays() {
         due: "2021-09-09",
         completed: false,
     });
+    const [todos, setTodos] = useState<any[]>([]);
+    const postTodo = async () => {
+        const response = await axios.post(API, todo);
+        setTodos([...todos, response.data]);
+    };
+    const fetchTodos = async () => {
+        const response = await axios.get(API);
+        setTodos(response.data);
+    };
+    const removeTodo = async (todo: { id: any; }) => {
+        const response = await axios
+            .get(`${API}/${todo.id}/delete`);
+        setTodos(response.data);
+    };
+    const createTodo = async () => {
+        const response = await axios.get(`${API}/create`);
+        setTodos(response.data);
+    };
+    const fetchTodoById = async (id: any) => {
+        const response = await axios.get(`${API}/${id}`);
+        setTodo(response.data);
+    };
+    const updateTitle = async () => {
+        const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`);
+        setTodos(response.data);
+    };
+    const deleteTodo = async (todo: { id: any; }) => {
+        const response = await axios.delete(`${API}/${todo.id}`);
+        setTodos(todos.filter((t) => t.id !== todo.id));
+    };
+    const updateTodo = async () => {
+        const response = await axios.put(`${API}/${todo.id}`, todo);
+        setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
+    };
+
+    useEffect(() => {
+        fetchTodos();
+    }, []);
     return (
         <div>
-            <h3>Working with Arrays</h3>
+            <h3>Working with Arrays (with axios)</h3>
+            <div><input type="number" value={todo.id}
+                onChange={(e) => setTodo({
+                    ...todo, id: parseInt(e.target.value)
+                })} /></div>
+            <div><input type="text" value={todo.title}
+                onChange={(e) => setTodo({
+                    ...todo, title: e.target.value
+                })} /></div>
+            <div><textarea value={todo.description}
+                onChange={(e) => setTodo({
+                    ...todo,
+                    description: e.target.value
+                })} /></div>
+            <div><input value={todo.due} type="date"
+                onChange={(e) => setTodo({
+                    ...todo, due: e.target.value
+                })} /></div>
+            <div><label>
+                <input type="checkbox"
+                    onChange={(e) => setTodo({
+                        ...todo, completed: e.target.checked
+                    })} />
+                Completed
+            </label></div>
+            <div><button className="btn btn-warning" onClick={postTodo}> Post Todo </button></div>
+            <div><button className="btn btn-primary" onClick={updateTodo}>
+                Update Todo
+            </button></div>
+            <div><button className="btn btn-primary" onClick={createTodo} >
+                Create Todo
+            </button></div>
+            <div><button className="btn btn-secondary" onClick={updateTitle} >
+                Update Title
+            </button></div>
+            <ul>
+                {todos.map((todo) => (
+                    <li key={todo.id} className="list-group-item">
+                        <input checked={todo.completed}
+                            type="checkbox" readOnly />
+                        <button className="btn btn-warning ms-2" onClick={() => fetchTodoById(todo.id)} >
+                            Edit
+                        </button>
+                        <button onClick={() => deleteTodo(todo)}
+                            className="btn btn-danger ms-2">
+                            Delete
+                        </button>
+                        {todo.title}
+                    </li>
+                ))}
+            </ul>
+            <h3>Working with Arrays (no axios)</h3>
             <input type="number" value={todo.id}
                 onChange={(e) => setTodo({
                     ...todo, id: parseInt(e.target.value)
