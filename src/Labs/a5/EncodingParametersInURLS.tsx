@@ -16,14 +16,6 @@ function EncodingParametersInURLs() {
             `${API_BASE}/a5/subtract/${a}/${b}`);
         setResult(response.data);
     };
-
-    // const fetchWelcome = async () => {
-    //     const response = await axios.get("http://localhost:4000/a5/welcome");
-    //     setWelcome(response.data);
-    // };
-    // useEffect(() => {
-    //     fetchWelcome();
-    // }, []);
     return (
         <div>
             <h3>Encoding Parameters In URLs</h3>
