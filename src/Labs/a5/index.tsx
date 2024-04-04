@@ -11,10 +11,6 @@ function Assignment5() {
             </a>
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
             <WorkingWithArrays />
             <br />
             <br />
