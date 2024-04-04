@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+const API_BASE = process.env.REACT_APP_API_BASE;
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({
         id: 1, title: "NodeJS Assignment",
         description: "Create a NodeJS server with ExpressJS",
         due: "2021-10-10", completed: false, score: 0,
     });
-    const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"
+    const ASSIGNMENT_URL = "${API_BASE}/a5/assignment"
     const [module, setModule] = useState({
         id: 1, name: "Module 1",
         description: "the first module",
         course: "Web Dev",
     });
-    const MODULE_URL = "http://localhost:4000/a5/module"
+    const MODULE_URL = "${API_BASE}/a5/module"
     const fetchAssignment = async () => {
         const response = await axios.get(`${ASSIGNMENT_URL}`);
         setAssignment(response.data);
@@ -51,11 +52,11 @@ function WorkingWithObjects() {
                 })}
                 value={module.name} />
             <h4>Get Module Name</h4>
-            <a className="btn btn-primary" href="http://localhost:4000/a5/module/name">
+            <a className="btn btn-primary" href="${API_BASE}/a5/module/name">
                 Get Module Name
             </a>
             <h4>Get Module</h4>
-            <a className="btn btn-primary" href="http://localhost:4000/a5/module">
+            <a className="btn btn-primary" href="${API_BASE}/a5/module">
                 Get Module
             </a>
             <h4>Modify Assignment Score</h4>
@@ -88,11 +89,11 @@ function WorkingWithObjects() {
                 })}
                 value={assignment.title} />
             <h4>Retrieving Objects</h4>
-            <a className="btn btn-primary" href="http://localhost:4000/a5/assignment">
+            <a className="btn btn-primary" href="${API_BASE}/a5/assignment">
                 Get Assignment
             </a>
             <h4>Retrieving Properties</h4>
-            <a className="btn btn-primary" href="http://localhost:4000/a5/assignment/title">
+            <a className="btn btn-primary" href="${API_BASE}/a5/assignment/title">
                 Get Title
             </a>
         </div>
