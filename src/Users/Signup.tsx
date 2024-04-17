@@ -15,7 +15,7 @@ export default function Signup() {
     };
     return (
         <div>
-            <h1>Signup</h1>
+            <h2>Signup</h2>
             {error && <div>{error}</div>}
             <input value={user.username} onChange={(e) => setUser({
                 ...user, username: e.target.value
