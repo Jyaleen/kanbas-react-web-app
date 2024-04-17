@@ -14,19 +14,17 @@ export default function Profile() {
     const save = async () => {
         await client.updateUser(profile);
     };
+    const signout = async () => {
+        await client.signout();
+        navigate("/Kanbas/Account/Signin");
+    };
+
     useEffect(() => {
         fetchProfile();
     }, []);
     return (
         <div>
             <h1>Profile</h1>
-            <button className="btn btn-primary" onClick={save}>
-                Save
-            </button>
-            <Link to="/Kanbas/Account/Admin/Users"
-                className="btn btn-warning">
-                Users
-            </Link>
             {profile && (
                 <div>
                     <input value={profile.username} onChange={(e) =>
@@ -50,6 +48,19 @@ export default function Profile() {
                     </select>
                 </div>
             )}
+            <br />
+            <button className="btn btn-primary" onClick={save}>
+                Save
+            </button>
+            &nbsp;&nbsp;
+            <button className="btn btn-danger" onClick={signout}>
+                Signout
+            </button>
+            &nbsp;&nbsp;
+            <Link to="/Kanbas/Account/Admin/Users"
+                className="btn btn-warning">
+                Users
+            </Link>
         </div>
     );
 }
