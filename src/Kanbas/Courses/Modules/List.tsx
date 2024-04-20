@@ -106,9 +106,9 @@ export default ModuleList;
 // function ModuleList() {
 //     const { courseId } = useParams();
 //     const modules = db.modules;
-    // const [moduleList, setModuleList] = useState<any[]>(modules);
-    // const modulesList = modules.filter((module) => module.course === courseId);
-    // const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+// const [moduleList, setModuleList] = useState<any[]>(modules);
+// const modulesList = modules.filter((module) => module.course === courseId);
+// const [selectedModule, setSelectedModule] = useState(modulesList[0]);
 //     const [module, setModule] = useState({
 //         name: "New Module",
 //         description: "New Description",
@@ -143,35 +143,35 @@ export default ModuleList;
 //     return (
 //         <>
 //             {/* <!-- Add buttons here --> */}
-            // <ul className="list-group wd-modules">
-            //     <li className="list-group-item">
-            //         <div className="flex">
-            //             <div className="p-3">
-            //                 <input className="list-group-item" value={module.name}
-            //                     onChange={(e) => setModule({
-            //                         ...module, name: e.target.value
-            //                     })}
-            //                 />
-            //                 <br />
-            //                 <textarea className="list-group-item" value={module.description}
-            //                     onChange={(e) => setModule({
-            //                         ...module, description: e.target.value
-            //                     })}
-            //                 />
-            //                 <br />
-            //                 <button className="btn btn-success" onClick={() => { addModule(module) }}>
-            //                     Add
-            //                 </button>
-            //                 <button
-            //                     className="btn btn-secondary"
-            //                     style={{ marginLeft: 10 }}
-            //                     onClick={updateModule}>
-            //                     Update
-            //                 </button>
+// <ul className="list-group wd-modules">
+//     <li className="list-group-item">
+//         <div className="flex">
+//             <div className="p-3">
+//                 <input className="list-group-item" value={module.name}
+//                     onChange={(e) => setModule({
+//                         ...module, name: e.target.value
+//                     })}
+//                 />
+//                 <br />
+//                 <textarea className="list-group-item" value={module.description}
+//                     onChange={(e) => setModule({
+//                         ...module, description: e.target.value
+//                     })}
+//                 />
+//                 <br />
+//                 <button className="btn btn-success" onClick={() => { addModule(module) }}>
+//                     Add
+//                 </button>
+//                 <button
+//                     className="btn btn-secondary"
+//                     style={{ marginLeft: 10 }}
+//                     onClick={updateModule}>
+//                     Update
+//                 </button>
 
-            //             </div>
-            //         </div>
-            //     </li>
+//             </div>
+//         </div>
+//     </li>
 
 //                 {/* <li className="list-group-item">
 //                     <div className="d-flex">
@@ -196,49 +196,49 @@ export default ModuleList;
 //                     </div>
 //                 </li> */}
 
-                // {modulesList
-                //     .filter((module) => module.course === courseId)
-                //     .map((module, index) => (
-                //         <li key={index}
-                //             className="list-group-item"
-                //             onClick={() => setSelectedModule(module)}>
-                //             <div>
-                //                 <FaEllipsisV className="me-2" />
-                //                 {module.name}
-                //                 <button
-                //                     className="btn btn-primary"
-                //                     onClick={(event) => { setModule(module); }}>
-                //                     Edit
-                //                 </button>
+// {modulesList
+//     .filter((module) => module.course === courseId)
+//     .map((module, index) => (
+//         <li key={index}
+//             className="list-group-item"
+//             onClick={() => setSelectedModule(module)}>
+//             <div>
+//                 <FaEllipsisV className="me-2" />
+//                 {module.name}
+//                 <button
+//                     className="btn btn-primary"
+//                     onClick={(event) => { setModule(module); }}>
+//                     Edit
+//                 </button>
 
-                //                 <button
-                //                     className="btn btn-danger"
-                //                     style={{ marginLeft: 10 }}
-                //                     onClick={() => deleteModule(module._id)}>
-                //                     Delete
-                //                 </button>
-                //                 <span className="float-end">
-                //                     <FaCheckCircle className="text-success" />
-                //                     <FaPlusCircle className="ms-2" />
-                //                     <FaEllipsisV className="ms-2" />
-                //                 </span>
-                //             </div>
-                //             {selectedModule._id === module._id && (
-                //                 <ul className="list-group">
-                //                     {module.lessons?.map((lesson, index) => (
-                //                         <li className="list-group-item" key={index}>
-                //                             <FaEllipsisV className="me-2" />
-                //                             {lesson.name}
-                //                             <span className="float-end">
-                //                                 <FaCheckCircle className="text-success" />
-                //                                 <FaEllipsisV className="ms-2" />
-                //                             </span>
-                //                         </li>
-                //                     ))}
-                //                 </ul>
-                //             )}
-                //         </li>
-                //     ))}
+//                 <button
+//                     className="btn btn-danger"
+//                     style={{ marginLeft: 10 }}
+//                     onClick={() => deleteModule(module._id)}>
+//                     Delete
+//                 </button>
+//                 <span className="float-end">
+//                     <FaCheckCircle className="text-success" />
+//                     <FaPlusCircle className="ms-2" />
+//                     <FaEllipsisV className="ms-2" />
+//                 </span>
+//             </div>
+//             {selectedModule._id === module._id && (
+//                 <ul className="list-group">
+//                     {module.lessons?.map((lesson, index) => (
+//                         <li className="list-group-item" key={index}>
+//                             <FaEllipsisV className="me-2" />
+//                             {lesson.name}
+//                             <span className="float-end">
+//                                 <FaCheckCircle className="text-success" />
+//                                 <FaEllipsisV className="ms-2" />
+//                             </span>
+//                         </li>
+//                     ))}
+//                 </ul>
+//             )}
+//         </li>
+//     ))}
 //             </ul>
 //         </>
 //     );

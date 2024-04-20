@@ -8,6 +8,10 @@ import Modules from "./Modules";
 // import Breadcrumbs from "./Breadcrumbs";
 import Home from "./Home";
 import Assignments from "./Assignments";
+import Quizzes from "../Quizzes";
+import Details from "../Quizzes/Details";
+import Preview from "../Quizzes/Preview/Preview";
+import Editor from "../Quizzes/Editor/Editor";
 const API_BASE = process.env.REACT_APP_API_BASE;
 function Courses() {
     const { courseId } = useParams();
@@ -36,9 +40,16 @@ function Courses() {
                         <Route path="Home" element={<Home />} />
                         <Route path="Modules" element={<Modules />} />
                         <Route path="Piazza" element={<h1>Piazza</h1>} />
-                        <Route path="Assignments" element={<Assignments />} />                        <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
+                        <Route path="Assignments" element={<Assignments />} />
+                        <Route path="Assignments/:assignmentId" element={<h1>Assignment Editor</h1>} />
                         <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
-                        <Route path="Quizzes" element={<h1>Quizzes</h1>} />
+                        <Route path="Quizzes" element={<Quizzes />} />
+                        <Route path="Quizzes/:quizId/Preview/" element={<Preview />} />
+                        <Route path="Quizzes/:quizId/Details/" element={<Details />} />
+                        <Route
+                            path="Quizzes/:quizId/Details/Editor"
+                            element={<Editor />}
+                        />
                         <Route path="Grades" element={<h1>Grades</h1>} />
                         <Route path="People" element={<h1>People</h1>} />
                         <Route path="Panopto Video" element={<h1>Panopto Video</h1>} />
