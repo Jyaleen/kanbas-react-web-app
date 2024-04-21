@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Quiz, getFormattedDate } from "./Row";
+import { Quiz, getDateFormat } from "./Row";
 import { FaBan, FaCheckCircle, FaEllipsisV, FaPencilAlt } from "react-icons/fa";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
@@ -242,7 +242,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getFormattedDate(quiz?.dueDate ?? "")}
+                    {getDateFormat(quiz?.dueDate ?? "")}
                 </span>
                 <span
                     style={{
@@ -260,7 +260,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getFormattedDate(quiz?.availableDate ?? "")}
+                    {getDateFormat(quiz?.availableDate ?? "")}
                 </span>
                 <span
                     style={{
@@ -269,7 +269,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getFormattedDate(quiz?.untilDate ?? "")}
+                    {getDateFormat(quiz?.untilDate ?? "")}
                 </span>
             </div>
         </div>

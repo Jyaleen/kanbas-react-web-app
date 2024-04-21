@@ -8,6 +8,23 @@ import {
 } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 
+export function getDateFormat(dateStr: string) {
+    const date = new Date(dateStr);
+    const monthDay = date.toLocaleString("default", {
+        month: "short",
+        day: "numeric",
+    });
+    const time = date
+        .toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        })
+        .toLowerCase();
+
+    return `${monthDay} at ${time}`;
+}
+
 export type QuizType =
     | "Graded Quiz"
     | "Practice Quiz"
@@ -65,7 +82,7 @@ const Row: React.FC<RowProps> = ({ quiz, removeQuiz, updateQuiz }) => {
         } else if (currentDate > availableDate && currentDate < untilDate) {
             return "Available";
         } else {
-            const formattedDate = getFormattedDate(quiz.availableDate);
+            const formattedDate = getDateFormat(quiz.availableDate);
             return `Not available until ${formattedDate}`;
         }
     };
@@ -171,20 +188,3 @@ const Row: React.FC<RowProps> = ({ quiz, removeQuiz, updateQuiz }) => {
 };
 
 export default Row;
-
-export function getFormattedDate(dateStr: string) {
-    const date = new Date(dateStr);
-    const monthDay = date.toLocaleString("default", {
-        month: "short",
-        day: "numeric",
-    });
-    const time = date
-        .toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: true,
-        })
-        .toLowerCase();
-
-    return `${monthDay} at ${time}`;
-}

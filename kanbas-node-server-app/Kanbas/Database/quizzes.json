@@ -14,9 +14,9 @@
         "oneQuestionAtATime": true,
         "webcamRequired": false,
         "lockQuestions": false,
-        "dueDate": "Sun Apr 21 2024 23:59:59",
-        "availableDate": "Sun Apr 14 10:00:00",
-        "untilDate": "Mon Apr 22 2024 10:00:00"
+        "dueDate": "Sun Feb 02 2024 23:59:59",
+        "availableDate": "Sun Jan 26 2024 10:00:00",
+        "untilDate": "Mon Feb 03 2024 10:00:00"
     },
     {
         "_id": "Q2",
