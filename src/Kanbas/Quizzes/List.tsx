@@ -89,15 +89,18 @@ const List: React.FC = () => {
                 <FaCaretDown color="black" />
                 <h5 style={{ margin: "8px" }}>Assignment Quizzes</h5>
             </div>
-            {quizzes.map((quiz) => {
-                return (
-                    <Row
-                        quiz={quiz}
-                        removeQuiz={removeQuiz}
-                        updateQuiz={updateQuiz}
-                    />
-                );
-            })}
+            <div
+                style={{ marginRight: "40px" }}>
+                {quizzes.map((quiz) => {
+                    return (
+                        <Row
+                            quiz={quiz}
+                            removeQuiz={removeQuiz}
+                            updateQuiz={updateQuiz}
+                        />
+                    );
+                })}
+            </div>
         </div>
     );
 };

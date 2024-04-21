@@ -74,7 +74,7 @@ const Row: React.FC<RowProps> = ({ quiz, removeQuiz, updateQuiz }) => {
         <div
             style={{
                 padding: "12px 6px 12px 10px",
-                border: "1px solid #c7cdd1",
+                border: "1px solid #c1c1c1",
                 borderTop: 0,
                 display: "flex",
                 alignItems: "center",
