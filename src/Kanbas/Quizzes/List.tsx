@@ -41,7 +41,7 @@ const List: React.FC = () => {
     };
 
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", marginRight: "20px" }}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <input
                     placeholder="Search for Quiz"

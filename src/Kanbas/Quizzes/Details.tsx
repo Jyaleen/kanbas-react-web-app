@@ -167,7 +167,7 @@ const Details: React.FC = () => {
             </div>
 
             <hr style={{ marginRight: "20px" }} />
-
+            <br />
             <h1>{quiz?.title}</h1>
 
             <div style={{ display: "flex", columnGap: "10px" }}>
@@ -191,7 +191,7 @@ const Details: React.FC = () => {
                     })}
                 </div>
             </div>
-
+            <br />
             <div style={{ display: "flex", flexWrap: "wrap", marginRight: "20px" }}>
                 <span
                     style={{
