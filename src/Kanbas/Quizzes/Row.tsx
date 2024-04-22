@@ -25,6 +25,20 @@ export function getDateFormat(dateStr: string) {
     return `${monthDay} at ${time}`;
 }
 
+export enum QuestionType {
+    "Multiple Choice",
+    "True/False",
+    "Fill In The Blank",
+}
+
+export type QuizQuestion = {
+    title: string;
+    points: number;
+    question: string;
+    questionType: QuestionType;
+    answer: { isCorrect: boolean; value: string }[];
+};
+
 export type QuizType =
     | "Graded Quiz"
     | "Practice Quiz"
@@ -54,6 +68,7 @@ export type Quiz = {
     oneQuestionAtATime: boolean;
     webcamRequired: boolean;
     lockQuestions: boolean;
+    questions: QuizQuestion[];
 };
 
 interface RowProps {

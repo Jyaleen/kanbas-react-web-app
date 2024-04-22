@@ -12,7 +12,8 @@ import {
 } from "react-icons/fa";
 
 interface DetailsEditorProps {
-    quiz: Quiz;
+    editQuiz: Quiz;
+    setEditQuiz: (quiz: Quiz) => void;
 }
 
 
@@ -108,15 +109,16 @@ export const QuizTextField: React.FC<{
     );
 };
 
-const DetailsEditor: React.FC<DetailsEditorProps> = ({ quiz }) => {
-    const [editQuiz, setEditQuiz] = useState(quiz);
+const DetailsEditor: React.FC<DetailsEditorProps> = ({
+    editQuiz,
+    setEditQuiz, }) => {
     const [hasTimeLimit, setHasTimeLimit] = useState(
         editQuiz.timeLimit !== undefined
     );
 
     const updateQuiz = (
         property: string,
-        value: string | boolean | number | undefined
+        value: string | number | boolean | undefined
     ) => {
         setEditQuiz({
             ...editQuiz,
@@ -129,7 +131,8 @@ const DetailsEditor: React.FC<DetailsEditorProps> = ({ quiz }) => {
             <input
                 value={editQuiz.title}
                 placeholder="Title"
-                onChange={(e) => setEditQuiz({ ...editQuiz, title: e.target.value })}
+                onChange={(e) => updateQuiz("title", e.target.value)}
+                // onChange={(e) => setEditQuiz({ ...editQuiz, title: e.target.value })}
                 style={{
                     margin: "25px 0",
                     padding: "5px",
@@ -142,8 +145,9 @@ const DetailsEditor: React.FC<DetailsEditorProps> = ({ quiz }) => {
 
             <span>Quiz Instructions:</span>
             <QuizTextField
-                value={quiz.instructions}
-                setValue={(e: string) => setEditQuiz({ ...editQuiz, instructions: e })}
+                value={editQuiz.instructions}
+                setValue={(e: string) => updateQuiz("instructions", e)}
+            // setValue={(e: string) => setEditQuiz({ ...editQuiz, instructions: e })}
             />
 
             <div style={{ display: "flex", columnGap: "20px", flexWrap: "wrap" }}>
@@ -164,18 +168,26 @@ const DetailsEditor: React.FC<DetailsEditorProps> = ({ quiz }) => {
                     <br /><br /><br /><br /><br /><br /><br />
                     <br /><br /><br /><br /><br /><br /><br />
                     <br /><br /><br /><br /><br /><br /><br />
-                    <br /><br /><br /><br /><br /><br /><br />
+
                 </div>
                 <div
                     style={{ display: "flex", flexDirection: "column", rowGap: "10px" }}
                 >
-                    <select style={{ padding: "5px", width: "150px" }}>
+                    <select
+                        style={{ padding: "5px", width: "150px" }}
+                        value={editQuiz.quizType}
+                        onChange={(e) => updateQuiz("quizType", e.target.value)}
+                    >
                         <option>Graded Quiz</option>
                         <option>Practice Quiz</option>
                         <option>Graded Survey</option>
                         <option>Ungraded Survey</option>
                     </select>
-                    <select style={{ padding: "5px", width: "150px" }}>
+                    <select
+                        value={editQuiz.assignmentGroup}
+                        style={{ padding: "5px", width: "150px" }}
+                        onChange={(e) => updateQuiz("assignmentGroup", e.target.value)}
+                    >
                         <option>Quizzes</option>
                         <option>Exams</option>
                         <option>Assignments</option>
