@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Quiz, getDateFormat } from "./Row";
+import { Quiz, getFormattedDate } from "./Row";
 import { FaBan, FaCheckCircle, FaEllipsisV, FaPencilAlt } from "react-icons/fa";
 
 const API_BASE = process.env.REACT_APP_API_BASE;
@@ -96,10 +96,10 @@ const Details: React.FC = () => {
         <div>
             <div
                 style={{
-                    width: "100%",
                     display: "flex",
                     justifyContent: "flex-end",
                     columnGap: "10px",
+                    marginRight: "20px"
                 }}
             >
                 {!quiz?.isPublished ? (
@@ -166,11 +166,9 @@ const Details: React.FC = () => {
                 </button>
             </div>
 
-            <hr />
+            <hr style={{ marginRight: "20px" }} />
 
-            <h1 style={{ color: "black", fontSize: "36px", fontWeight: "400" }}>
-                {quiz?.title}
-            </h1>
+            <h1>{quiz?.title}</h1>
 
             <div style={{ display: "flex", columnGap: "10px" }}>
                 <div
@@ -194,7 +192,7 @@ const Details: React.FC = () => {
                 </div>
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", marginRight: "20px" }}>
                 <span
                     style={{
                         width: "25%",
@@ -242,7 +240,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getDateFormat(quiz?.dueDate ?? "")}
+                    {getFormattedDate(quiz?.dueDate ?? "")}
                 </span>
                 <span
                     style={{
@@ -260,7 +258,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getDateFormat(quiz?.availableDate ?? "")}
+                    {getFormattedDate(quiz?.availableDate ?? "")}
                 </span>
                 <span
                     style={{
@@ -269,7 +267,7 @@ const Details: React.FC = () => {
                         padding: "16px 0",
                     }}
                 >
-                    {getDateFormat(quiz?.untilDate ?? "")}
+                    {getFormattedDate(quiz?.untilDate ?? "")}
                 </span>
             </div>
         </div>

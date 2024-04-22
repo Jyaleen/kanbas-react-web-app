@@ -6,18 +6,17 @@ interface QuestionTypeProps {
     setEditQuizQuestion: (quizQuestion: QuizQuestion) => void;
 }
 
-const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
+const FillInTheBlankQuestionEditor: React.FC<QuestionTypeProps> = ({
     editQuizQuestion,
     setEditQuizQuestion,
 }) => {
     const addAnswer = () => {
-        const isCorrect = editQuizQuestion.answer.length === 0;
         setEditQuizQuestion({
             ...editQuizQuestion,
             answer: [
                 ...editQuizQuestion.answer,
                 {
-                    isCorrect: isCorrect,
+                    isCorrect: false,
                     value: "",
                 },
             ],
@@ -54,8 +53,11 @@ const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
     return (
         <div style={{ margin: "20px" }}>
             <span>
-                Enter your question and multiple answers, then select the one correct
-                answer.
+                Enter your question text, then define all possible correct answers for
+                the blank.
+                <br />
+                Students will see the question followed by a small text box to type in
+                their answer.
             </span>
 
             <span
@@ -105,23 +107,9 @@ const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
                             }}
                         >
                             <div>
-                                <FaArrowRight
-                                    color={answer.isCorrect ? "green" : "#888"}
-                                    style={{ marginRight: "10px" }}
-                                    onClick={() => updateCorrectAnswer(index)}
-                                />
-                                {answer.isCorrect ? (
-                                    <span style={{ color: "green", marginRight: "10px" }}>
-                                        Correct Answer
-                                    </span>
-                                ) : (
-                                    <span
-                                        style={{ marginRight: "5px" }}
-                                        onClick={() => updateCorrectAnswer(index)}
-                                    >
-                                        Possible Answer
-                                    </span>
-                                )}
+                                <span style={{ marginRight: "5px" }}>
+                                    Blank {index + 1} Answer:{" "}
+                                </span>
 
                                 <input
                                     style={{ height: "40px" }}
@@ -150,4 +138,4 @@ const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
     );
 };
 
-export default MultipleChoiceQuestion;
+export default FillInTheBlankQuestionEditor;

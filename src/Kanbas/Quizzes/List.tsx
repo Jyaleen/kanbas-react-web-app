@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Row, { Quiz } from "./Row";
+import QuizRow, { Quiz } from "./Row";
 import axios from "axios";
 import { FaCaretDown, FaEllipsisV } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,14 +17,11 @@ const List: React.FC = () => {
 
     const getQuizzes = async () => {
         const result = await axios.get(QUIZZES_API);
-        // console.log(result)
-        // console.log(QUIZZES_API)
         setQuizzes(result.data);
     };
 
     useEffect(() => {
         getQuizzes();
-        console.log(quizzes)
     }, []);
 
     const addQuiz = async () => {
@@ -40,67 +37,71 @@ const List: React.FC = () => {
 
     const updateQuiz = async (quiz: Quiz) => {
         const response = await axios.put(`${QUIZZES_API}`, quiz);
-        setQuizzes(response.data);
+        setQuizzes(quizzes.map((q) => (q._id === quiz._id ? quiz : q)));
     };
 
     return (
         <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginRight: "40px",
-                marginTop: "20px"
-            }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <input
                     placeholder="Search for Quiz"
                     style={{
-                        width: "300px",
-                        padding: "10px",
-                        marginBottom: "10px",
+                        width: "225px",
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        marginBottom: "12px",
+                        borderRadius: "5px",
                     }}
                 />
+
                 <div>
                     <button
-                        className="btn btn-danger"
-                        style={{ marginRight: "12px" }}
+                        style={{
+                            padding: "8px 16px",
+                            border: "1px solid #ccc",
+                            backgroundColor: "#d51a2c",
+                            color: "white",
+                            borderRadius: "5px",
+                            marginRight: "12px",
+                        }}
                         onClick={addQuiz}
                     >
                         + Quiz
                     </button>
                     <button
-                        className="btn btn-outline-secondary"
+                        style={{
+                            border: "1px solid #ccc",
+                            padding: "8px",
+                            borderRadius: "5px",
+                        }}
                     >
-                        <FaEllipsisV size="18" color="gray" />
+                        <FaEllipsisV size="20" color="gray" />
                     </button>
                 </div>
             </div>
             <hr />
             <div
                 style={{
-                    marginTop: "10px",
-                    marginRight: "40px",
-                    backgroundColor: "#f3f3f3",
-                    border: "1px solid gray",
-                    padding: "15px",
+                    marginTop: "12px",
+                    backgroundColor: "#f5f5f5",
+                    border: "1px solid #c7cdd1",
+                    padding: "12px 6px",
                     display: "flex",
                     alignItems: "center",
                 }}
             >
                 <FaCaretDown color="black" />
-                <h5 style={{ margin: "8px" }}>Assignment Quizzes</h5>
+                <h2 style={{ fontSize: "16px", margin: "8px" }}>Assignment Quizzes</h2>
             </div>
-            <div
-                style={{ marginRight: "40px" }}>
-                {quizzes.map((quiz) => {
-                    return (
-                        <Row
-                            quiz={quiz}
-                            removeQuiz={removeQuiz}
-                            updateQuiz={updateQuiz}
-                        />
-                    );
-                })}
-            </div>
+            {quizzes.map((quiz) => {
+                return (
+                    <QuizRow
+                        quiz={quiz}
+                        removeQuiz={removeQuiz}
+                        updateQuiz={updateQuiz}
+                    />
+                );
+            })}
         </div>
     );
 };

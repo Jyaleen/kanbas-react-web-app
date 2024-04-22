@@ -16,7 +16,6 @@ interface DetailsEditorProps {
     setEditQuiz: (quiz: Quiz) => void;
 }
 
-
 export const QuizTextField: React.FC<{
     value: string;
     setValue: (v: string) => void;
@@ -35,6 +34,7 @@ export const QuizTextField: React.FC<{
                     display: "flex",
                     columnGap: "15px",
                     padding: "10px 0",
+                    marginRight: "20px"
                 }}
             >
                 <span>Edit</span>
@@ -47,10 +47,10 @@ export const QuizTextField: React.FC<{
 
             <div style={{ display: "flex", columnGap: "15px", padding: "10px 0" }}>
                 <span>
-                    12pt
+                    12pt <FaCaretDown />
                 </span>
                 <span>
-                    Paragraph
+                    Paragraph <FaCaretDown />
                 </span>
                 <span>|</span>
                 <span style={{ fontWeight: "900" }}>B</span>
@@ -62,14 +62,19 @@ export const QuizTextField: React.FC<{
                         textDecorationThickness: "5px",
                     }}
                 >
-                    A
+                    A <FaCaretDown />
                 </span>
                 <span
+                    style={{
+                        textDecoration: "underline",
+                        textDecorationThickness: "5px",
+                    }}
                 >
                     <FaPencilAlt />
+                    <FaCaretDown />
                 </span>
                 <span>
-                    T
+                    T <FaCaretDown />
                 </span>
                 <span>|</span>
                 <span>
@@ -111,7 +116,8 @@ export const QuizTextField: React.FC<{
 
 const DetailsEditor: React.FC<DetailsEditorProps> = ({
     editQuiz,
-    setEditQuiz, }) => {
+    setEditQuiz,
+}) => {
     const [hasTimeLimit, setHasTimeLimit] = useState(
         editQuiz.timeLimit !== undefined
     );
@@ -124,6 +130,12 @@ const DetailsEditor: React.FC<DetailsEditorProps> = ({
             ...editQuiz,
             [property]: value,
         });
+    };
+
+    const optionTypeStyle = {
+        height: "32px",
+        display: "flex",
+        alignItems: "center",
     };
 
     return (
@@ -149,7 +161,7 @@ const DetailsEditor: React.FC<DetailsEditorProps> = ({
                 setValue={(e: string) => updateQuiz("instructions", e)}
             // setValue={(e: string) => setEditQuiz({ ...editQuiz, instructions: e })}
             />
-
+            <br />
             <div style={{ display: "flex", columnGap: "20px", flexWrap: "wrap" }}>
                 <div
                     style={{

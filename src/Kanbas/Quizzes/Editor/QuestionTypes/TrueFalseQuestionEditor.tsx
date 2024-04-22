@@ -6,35 +6,10 @@ interface QuestionTypeProps {
     setEditQuizQuestion: (quizQuestion: QuizQuestion) => void;
 }
 
-const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
+const TrueFalseQuestion: React.FC<QuestionTypeProps> = ({
     editQuizQuestion,
     setEditQuizQuestion,
 }) => {
-    const addAnswer = () => {
-        const isCorrect = editQuizQuestion.answer.length === 0;
-        setEditQuizQuestion({
-            ...editQuizQuestion,
-            answer: [
-                ...editQuizQuestion.answer,
-                {
-                    isCorrect: isCorrect,
-                    value: "",
-                },
-            ],
-        });
-    };
-
-    const updateAnswerValue = (value: string, index: number) => {
-        const newAnswers = editQuizQuestion.answer.map((answer, i) => {
-            if (i === index) {
-                return { ...answer, value };
-            } else {
-                return answer;
-            }
-        });
-        setEditQuizQuestion({ ...editQuizQuestion, answer: newAnswers });
-    };
-
     const updateCorrectAnswer = (index: number) => {
         const newAnswers = editQuizQuestion.answer.map((answer, i) => ({
             ...answer,
@@ -43,19 +18,11 @@ const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
         setEditQuizQuestion({ ...editQuizQuestion, answer: newAnswers });
     };
 
-    const deleteAnswer = (index: number) => {
-        const filteredAnswers = editQuizQuestion.answer.filter(
-            (_, i) => i !== index
-        );
-
-        setEditQuizQuestion({ ...editQuizQuestion, answer: filteredAnswers });
-    };
-
     return (
         <div style={{ margin: "20px" }}>
             <span>
-                Enter your question and multiple answers, then select the one correct
-                answer.
+                Enter your question text, then select if True or False is the correct
+                Answer
             </span>
 
             <span
@@ -123,31 +90,21 @@ const MultipleChoiceQuestion: React.FC<QuestionTypeProps> = ({
                                     </span>
                                 )}
 
-                                <input
-                                    style={{ height: "40px" }}
-                                    value={answer.value}
-                                    onChange={(e) => updateAnswerValue(e.target.value, index)}
-                                />
+                                <span
+                                    style={{
+                                        color: answer.isCorrect ? "green" : "#888",
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    {answer.value}
+                                </span>
                             </div>
-
-                            <FaTrash color="888" onClick={() => deleteAnswer(index)} />
                         </div>
                     );
                 })}
             </div>
-
-            <button
-                style={{
-                    border: "none",
-                    backgroundColor: "transparent",
-                    color: "#d51a2c",
-                }}
-                onClick={addAnswer}
-            >
-                + Add Another Answer
-            </button>
         </div>
     );
 };
 
-export default MultipleChoiceQuestion;
+export default TrueFalseQuestion;
