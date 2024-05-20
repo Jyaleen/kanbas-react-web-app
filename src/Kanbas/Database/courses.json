@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "SD101",
+        "name": "Intro to Scooby Doo",
+        "number": "SD4500",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "image": "scooby.png"
+    },
+    {
+        "_id": "PHIL101",
+        "name": "Philosophy of Crayon Shin-Chan",
+        "number": "PHIL4560",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "image": "crayon.png"
+    },
+    {
+        "_id": "RS103",
+        "name": "Spacecraft Design",
+        "number": "RS4570",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "image": "spaceship-design.png"
+    }
+]
